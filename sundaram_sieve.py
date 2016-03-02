@@ -13,15 +13,14 @@ def prime_sundaram_sieve(upton):
   '''
   limit = int(sqrt(upton)) + 1
   sieve = [True] * (upton >> 1)
-
+  sievelen = len(sieve)
   for index in range(0,limit):
     if sieve[index]:
       temp = index + index
       index_square = ( temp * (index + 3) ) + 3
       increment = temp + 3
-      for inner_index in range(index_square,limit,increment): 
+      for inner_index in range(index_square,sievelen,increment): 
         sieve[inner_index] = False
-
   return sieve
 
 if __name__ == '__main__':
